@@ -26,13 +26,14 @@ public class Algorithms {
 		}
 		return oysterCount;
 	}
-	static double value = 0;
-	public static int findTallest(List<Double> peeps) {
-		
+	
+	public static double findTallest(List<Double> peeps) {
+		double value = 0;
 		for (int i = 0; i < peeps.size(); i++) {
 			
-			if(peeps.get(i) > value)){
+			if(peeps.get(i) > value){
 			value = peeps.get(i);
+		}
 		}
 		return value;
 	}
@@ -51,18 +52,18 @@ public class Algorithms {
 		return words.get(place);
 	}
 	
-	public static boolean containsSOS(List<Boolean> list) {
+	public static boolean containsSOS(List<String> list) {
 		
-		for (int i = 0; i < list.size(); i++) {
-			
-			if(list.contains("...---...")) {
+		System.out.println(list);
+		
+			if(list.contains(" ... --- ... ")) {
 				
 				return true;
 				
+			}else {
+
+				return false;
 			}
-			
-		}
-		return false;
 	}
 	static double t = 0;
 	static double p = 0;
@@ -75,9 +76,9 @@ public class Algorithms {
 				q = results.get(y);
 				if(q>p) {
 					
-					t = p;
-					p=q;
-					q=t;
+					t = results.get(x);
+					results.set(x, results.get(y));
+					results.set(y, t);
 					
 				}
 				
